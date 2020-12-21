@@ -138,9 +138,11 @@
 		if (config.data.datasets.length > 0) {
 			var month = MONTHS[config.data.labels.length % MONTHS.length];
 			config.data.labels.push(month);
+			config.data.labels.shift();
 			
 			config.data.datasets.forEach(function(dataset) {
 				dataset.data.push(randomScalingFactor());
+				dataset.data.shift();
 			});
 			
 			window.myLine.update();
